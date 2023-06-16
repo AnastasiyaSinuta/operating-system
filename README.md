@@ -100,6 +100,7 @@ umount 123.bin
 создать фс на обоих дисках, смонтировать, создать файлы, размонтировать, \
 kpartx -d 123.bin
 7. lvm тома
+
 создать диск из двух файлов \
 dd if=/dev/zero of=./d01 count=1 bs=1M # забить файл данными \
 losetup -f --show ./d01 # смонтировать файл как устройство \
@@ -112,7 +113,8 @@ vgextend, vgreduce # добавить и удалить из группы \
 Логический диск \
 lvcreate -n first -L 2G vg # создать логический том \
 lvresize -L 40G vg1/lv2 # изменить размер тома \
-Lvremove # удаление тома \
+Lvremove # удаление тома
+
 Memory management \
 https://www.kernel.org/doc/gorman/html/understand/understand009.html \
 https://blog.holbertonschool.com/hack-the-virtual-memory-malloc-the-heap-the-program-break/ \
@@ -157,24 +159,27 @@ sudo perf script --header
     8) docker run -v host_path:container_path - пробросить в контейнер папку
     9) docker export <id> <name> - экспортировать контейнер
     10) cat name.tar | docker import - <name> - импортировать контейнер
-        Dockerfile - конфиг со способом создания Image \
-        FROM ubuntu \
-        RUN apt update \
-        RUN apt install -y python3 \
-        WORKDIR /home/test \
-        ENTRYPOINT python3 -m http.server 2000
 
-        docker build -t mycont . \
-        docker-compose.yml - какие контейнеры создать и какие порты и папки в них пробросит \
-        version: "2.0" \
-        services: \
-        my_cointainer: \
-        build: . \
-        volumes:
-        - /tmp/test/shared:/home/test \
-        ports: \
-        - 8011:2000 \
-        docker-compose up --build -d
+Dockerfile - конфиг со способом создания Image \
+FROM ubuntu \
+RUN apt update \
+RUN apt install -y python3 \
+WORKDIR /home/test \
+ENTRYPOINT python3 -m http.server 2000
+
+docker build -t mycont . \
+docker-compose.yml - какие контейнеры создать и какие порты и папки в них пробросит \
+version: "2.0" \
+services: \
+my_cointainer: \
+build: .
+
+volumes:
+- /tmp/test/shared:/home/test
+
+ports:
+- 8011:2000 \
+docker-compose up --build -d
 
 PAM \
 https://www.opennet.ru/base/dev/pam_linux.txt.html
@@ -205,7 +210,8 @@ https://docs.microsoft.com/en-us/windows-hardware/drivers/install/early-launch-a
 
 Kernel Patch Protector https://xakep.ru/2019/11/25/byepg/ \
 EWT - https://docs.microsoft.com/en-us/windows/win32/etw/event-tracing-portal \
-HVCI - https://docs.microsoft.com/en-us/windows/security/threat-protection/device-guard/enable-virtualization-based-protection-of-code-integrity \
+HVCI - https://docs.microsoft.com/en-us/windows/security/threat-protection/device-guard/enable-virtualization-based-protection-of-code-integrity
+
 Про UAC \
 https://docs.microsoft.com/en-us/windows/security/identity-protection/user-account-control/how-user-account-control-works
 
@@ -218,15 +224,17 @@ https://docs.microsoft.com/en-us/windows/security/identity-protection/user-accou
 1. Придумать и написать свой LSM-модуль (сложная авторизация действий)
 2. Придумать и написать свой PAM-модуль (сложная авторизация действий)
 3. *Свой сложный Seccomp-фильтр
-    Задание \
-    apparmor-profiles \
-    apparmor-utils \
-    aa-status \
-    aa-complain - режим мониторинга \
-    aa-enforce - режим защиты \
-    aa-autodep - новый профиль \
-    aa-genprof - обновить профиль \
-    сгенерировать свой профиль для ncat
+
+Задание
+
+apparmor-profiles \
+apparmor-utils \
+aa-status \
+aa-complain - режим мониторинга \
+aa-enforce - режим защиты \
+aa-autodep - новый профиль \
+aa-genprof - обновить профиль \
+сгенерировать свой профиль для ncat
 
 # Сети
 # Лаб 9.
