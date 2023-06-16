@@ -117,7 +117,7 @@ Memory management \
 https://www.kernel.org/doc/gorman/html/understand/understand009.html \
 https://blog.holbertonschool.com/hack-the-virtual-memory-malloc-the-heap-the-program-break/ \
 http://goog-perftools.sourceforge.net/doc/tcmalloc.html \
-https://codearcana.com/posts/2016/07/11/arena-leak-in-glibc.html - статистика по памяти \
+https://codearcana.com/posts/2016/07/11/arena-leak-in-glibc.html - статистика по памяти
 
 # Лаб 6.
 Протестировать функцию malloc/free и построить график зависимости времени выделения от размера запрашиваемой памяти. \
@@ -125,8 +125,9 @@ https://codearcana.com/posts/2016/07/11/arena-leak-in-glibc.html - статис�
 Сложный (или)
 1. Сравнить с другими малоками
 2. Тестировать на живом процессе
+
 sudo perf record -ag -e syscalls:sys_enter_mmap -- sleep 30 \
-sudo perf script --header \
+sudo perf script --header
 
 # Лаб 7.
 Перечислите все известные вам способы обнаружения работы в виртуальной машине.(>=5)
@@ -161,7 +162,7 @@ sudo perf script --header \
         RUN apt update \
         RUN apt install -y python3 \
         WORKDIR /home/test \
-        ENTRYPOINT python3 -m http.server 2000 \
+        ENTRYPOINT python3 -m http.server 2000
 
         docker build -t mycont . \
         docker-compose.yml - какие контейнеры создать и какие порты и папки в них пробросит \
@@ -169,7 +170,7 @@ sudo perf script --header \
         services: \
         my_cointainer: \
         build: . \
-        volumes: \
+        volumes:
         - /tmp/test/shared:/home/test \
         ports: \
         - 8011:2000 \
@@ -243,7 +244,7 @@ https://it.wikireading.ru/7079 - опции сокетов \
 https://www.ibm.com/developerworks/ru/library/l-hisock/index.html - оптимизация tcp \
 https://mathcs.clarku.edu/~jbreecher/cs280/UNIX%20Network%20Programming(Volume1,3rd).pdf \
 http://tharikasblogs.blogspot.com/p/how-to-write-simple-rpc-programme.html - создание rpc-программ для linux \
-ftp://ftp.mao.kiev.ua/pub/docs_books/Linux/%D0%A3%D0%BE%D0%BB%D1%82%D0%BE%D0%BD%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%81%D0%B5%D1%82%D0%B5%D0%B2%D1%8B%D1%85%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9%20%D0%B2%20%D1%81%D1%80%D0%B5%D0%B4%D0%B5%20linux.pdf
+http://ftp.mao.kiev.ua/pub/docs_books/Linux/%D0%A3%D0%BE%D0%BB%D1%82%D0%BE%D0%BD%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D1%81%D0%B5%D1%82%D0%B5%D0%B2%D1%8B%D1%85%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9%20%D0%B2%20%D1%81%D1%80%D0%B5%D0%B4%D0%B5%20linux.pdf
 
 # Практика
 1. Реализовать клиент-сервер на языке си по протоколу TCP (сервер и клиент). 10-15 минут 12-00
