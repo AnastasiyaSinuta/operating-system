@@ -1,7 +1,5 @@
-all: lab2_linux lab2_win
+all: lab2_linux
 lab2_linux: lab2_linux.c
-	gcc -g -o lab2_linux lab2_linux.c
-lab2_win: lab2_win.c
-	gcc -g -o lab2_win lab2_win.c
+	gcc -o lab2_linux lab2_linux.c
 clean:
-	rm -rf *.o lab2_linux lab2_win
+	rm -rf *.o lab2_linux
