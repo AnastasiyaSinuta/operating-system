@@ -1,19 +1,24 @@
-#include <windows.h>
-#include <time.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <windows.h>
 
 int main() {
+    SYSTEM_INFO systemInfo;
+    GetSystemInfo(&systemInfo);
+    size_t pageSize = systemInfo.dwPageSize;
+    
     while (1) {
-        long size = 1024*1024*1024;
-        void* p = VirtualAlloc(0, size, MEM_COMMIT, PAGE_READWRITE);
-        if (p != NULL) {
-            char fullst[16];
-            fgets(fullst, 16, stdin);
-            for (int i=0; i < size; i += sysconf(_SC_PAGESIZE))
-                ((char*)p)[i] = 0;
-            fgets(fullst, 16, stdin);
+        LPVOID p = VirtualAlloc(NULL, pageSize, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+        if (p == NULL) {
+            printf("Memory allocation failed!\n");
+            break;
+        }
+
+        for (size_t i = 0; i < pageSize; i++) {
+            *((volatile uint8_t*)(p + i)) = 0;
         }
     }
+
     return 0;
 }
