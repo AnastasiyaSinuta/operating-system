@@ -19,6 +19,7 @@ https://drive.google.com/drive/folders/1-zAMKks3xeqXtg90uQBAG0oUhvhe11Lx?usp=sha
 3. Ознакомиться с работой демона OOM Killer в Linux
 4. Достичь сообщения о невозможности выделить память в Windows
 
+# Лаб3
 swapoff -a \
 https://www.informit.com/articles/article.aspx?p=101760&seqNum=2 - старый планировщик \
 https://developer.ibm.com/tutorials/l-completely-fair-scheduler/ - новый планировщик \
@@ -30,9 +31,7 @@ https://serverfault.com/questions/948401/debugging-and-fine-tuning-the-linux-pro
 https://developer.ibm.com/tutorials/l-completely-fair-scheduler/ \
 http://www.brendangregg.com/perf.html#SchedulerAnalysis \
 https://doc.opensuse.org/documentation/leap/archive/42.1/tuning/html/book.sle.tuning/cha.tuning.taskscheduler.html \
-https://man7.org/linux/man-pages/man7/sched.7.html
-
-# Лаб3
+https://man7.org/linux/man-pages/man7/sched.7.html \
 https://github.com/ereyes01/linpack
 
 ## Простой вариант
