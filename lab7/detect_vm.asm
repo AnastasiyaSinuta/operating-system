@@ -1,3 +1,7 @@
+; nasm -f elf64 detect_vm.asm -o detect_vm.o
+; ld detect_vm.o -o detect_vm
+; ./detect_vm
+
 section .data
     not_vm_msg db "Not a virtual machine", 0x0A
     in_vm_msg db "Virtual Machine", 0x0A
