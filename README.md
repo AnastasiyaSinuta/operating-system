@@ -1,10 +1,6 @@
 # operating-system
 ITMO OS-2023 Course
 
-Группа \
-Имя студента \
-Номер лабы \
-Сама лаба \
 Ссылка для сдачи лаб: \
 https://drive.google.com/drive/folders/1-zAMKks3xeqXtg90uQBAG0oUhvhe11Lx?usp=share_link
 
